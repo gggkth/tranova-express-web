@@ -5,9 +5,9 @@ export default function Footer() {
   return (
     <footer className="w-full bg-gray-900 text-gray-400 font-sans">
       <FadeUp><div className="max-w-6xl mx-auto px-8 py-14">
-        <div className="grid grid-cols-4 gap-10 mb-12">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-10 mb-12">
           {/* Brand */}
-          <div className="col-span-1">
+          <div className="col-span-2 md:col-span-1">
             <div className="text-[#d40511] text-2xl font-black italic tracking-tighter mb-1">
               Tranova
               <span className="block h-[3px] w-full bg-[#d40511] mt-0.5"></span>

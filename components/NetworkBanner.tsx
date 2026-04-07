@@ -5,9 +5,9 @@ export default function NetworkBanner() {
   return (
     <section className="w-full bg-[#ffcc00]">
       <FadeUp>
-      <div className="max-w-4xl mx-auto flex items-stretch gap-14">
+      <div className="max-w-4xl mx-auto flex flex-col md:flex-row items-stretch gap-8 md:gap-14">
         {/* Image */}
-        <div className="flex-shrink-0 w-44 overflow-hidden">
+        <div className="flex-shrink-0 w-full md:w-44 h-48 md:h-auto overflow-hidden">
           <img
             src="https://img.freepik.com/premium-photo/data-exchange-global-network-world-earth-night-city-lights-from-orbit-elements-this-image-furnished-by-nasa_112293-1147.jpg?semt=ais_hybrid&w=740&q=80"
             alt="트라노바 네트워크"

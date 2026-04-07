@@ -1,23 +1,70 @@
+'use client';
+
 import { CalendarHeart, ClipboardList, Building2 } from 'lucide-react';
 import FadeUp from './FadeUp';
+import { useEffect, useState } from 'react';
+
+const TYPING_TEXT = 'Tranova connects the world';
+
+function TypingTitle({ onDone }: { onDone: () => void }) {
+  const [displayed, setDisplayed] = useState('');
+  const [done, setDone] = useState(false);
+
+  useEffect(() => {
+    if (done) return;
+    if (displayed.length < TYPING_TEXT.length) {
+      const timeout = setTimeout(() => {
+        setDisplayed(TYPING_TEXT.slice(0, displayed.length + 1));
+      }, 70);
+      return () => clearTimeout(timeout);
+    } else {
+      setDone(true);
+      onDone();
+    }
+  }, [displayed, done, onDone]);
+
+  return (
+    <div className="mb-6 w-full text-left">
+      <h1
+        className="font-black text-white tracking-tight leading-none"
+        style={{ fontSize: 'clamp(2.5rem, 7vw, 6rem)', height: 'clamp(3rem, 8.4vw, 7.2rem)' }}
+      >
+        {displayed}
+        <span className="inline-block w-[3px] h-[0.85em] bg-[#ffcc00] ml-1 align-middle animate-[blink_1s_step-start_infinite]" />
+      </h1>
+    </div>
+  );
+}
 
 export default function Hero() {
+  const [typingDone, setTypingDone] = useState(false);
+
   return (
-    <section className="relative w-full font-sans mb-28">
-      {/* Background Image - covers only the hero portion */}
+    <section className="relative w-full font-sans mb-28 -mt-16">
+      {/* Background Image */}
       <div
         className="absolute inset-x-0 top-0 bg-[url('/hero-bg-logistics.png')] bg-cover bg-center bg-no-repeat"
-        style={{ height: '80vh', minHeight: '450px' }}
+        style={{ height: '100vh', minHeight: '450px' }}
       >
-        <div className="absolute inset-0 bg-black/30"></div>
+        <div className="absolute inset-0 bg-black/50"></div>
       </div>
 
-      {/* Hero Content - same height as background */}
+      {/* Hero Content */}
       <div
-        className="relative z-10 flex flex-col items-center justify-center px-8 max-w-6xl mx-auto w-full"
-        style={{ height: '80vh', minHeight: '450px' }}
+        className="relative z-10 flex flex-col items-center justify-center gap-16 px-8 max-w-6xl mx-auto w-full translate-y-8"
+        style={{ height: '100vh', minHeight: '450px' }}
       >
-        <FadeUp className="w-full max-w-2xl flex flex-col" delay={100}>
+        <FadeUp className="w-full max-w-4xl flex flex-col items-start" delay={100}>
+          <TypingTitle onDone={() => setTypingDone(true)} />
+        </FadeUp>
+
+        <div
+          className="w-full max-w-2xl flex flex-col items-center mt-16 transition-all duration-700"
+          style={{
+            opacity: typingDone ? 1 : 0,
+            transform: typingDone ? 'translateY(0)' : 'translateY(16px)',
+          }}
+        >
           {/* Search Box */}
           <div className="w-full flex items-center bg-white rounded-full shadow-xl p-1.5 overflow-hidden border border-gray-200">
             <input
@@ -29,11 +76,17 @@ export default function Hero() {
               배송 조회
             </button>
           </div>
-        </FadeUp>
+        </div>
       </div>
 
-      {/* Cards Section - overlaps hero by half the card height (~80px) */}
-      <FadeUp className="relative z-20 max-w-4xl mx-auto w-full px-8 -mt-[80px]" delay={300}>
+      {/* Cards Section */}
+      <div
+        className="relative z-20 max-w-4xl mx-auto w-full px-8 -mt-[140px] transition-all duration-700 delay-300"
+        style={{
+          opacity: typingDone ? 1 : 0,
+          transform: typingDone ? 'translateY(0)' : 'translateY(16px)',
+        }}
+      >
         <div className="bg-white rounded-[32px] shadow-2xl flex flex-col md:flex-row divide-y md:divide-y-0 md:divide-x divide-gray-100 relative overflow-hidden">
           {/* Top right Yellow Notch */}
           <div className="absolute top-0 right-0 w-16 h-16 bg-[#ffcc00] -mr-8 -mt-8 transform rotate-45 pointer-events-none"></div>
@@ -59,7 +112,7 @@ export default function Hero() {
             <p className="text-xs text-gray-500">운송 품목에 따른 견적 받기</p>
           </div>
         </div>
-      </FadeUp>
+      </div>
     </section>
   );
 }

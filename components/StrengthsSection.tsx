@@ -36,7 +36,7 @@ export default function StrengthsSection() {
   return (
     <section className="w-full font-sans">
       {/* Transition watermark */}
-      <div className="w-full bg-white px-12">
+      <div className="w-full bg-white px-12 overflow-hidden">
         <p className="text-[clamp(72px,11vw,160px)] font-black leading-none tracking-[0.08em] whitespace-nowrap text-center select-none text-[#f6f6f6]">
           TRANOVA EXPRESS
         </p>
