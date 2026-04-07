@@ -24,7 +24,7 @@ export default function NetworkBanner() {
             트라노바 익스프레스는 한국·중국·호주 3개국에 직영 거점을 운영합니다.
             중간 대리점 없이 직접 처리하기 때문에 더 빠르고, 더 안전하며, 더 투명한 배송을 약속합니다.
           </p>
-          <button className="bg-[#d40511] hover:bg-[#ba040f] transition-colors text-white font-bold px-6 py-3 text-sm rounded flex items-center gap-2 cursor-pointer">
+          <button className="bg-[#d40511] hover:bg-black hover:-translate-y-1 hover:shadow-lg transition-all duration-300 text-white font-bold px-6 py-3 text-sm rounded flex items-center gap-2 cursor-pointer">
             네트워크 보러가기 <ArrowRight className="w-4 h-4" />
           </button>
         </div>

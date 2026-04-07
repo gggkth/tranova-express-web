@@ -86,7 +86,7 @@ export default function ServiceSection() {
                       </div>
                     </div>
 
-                    <button className="mt-8 bg-[#d40511] hover:bg-[#ba040f] transition-colors text-white font-bold px-0 py-3 text-sm rounded flex items-center justify-center gap-2 cursor-pointer w-full">
+                    <button className="mt-8 bg-[#d40511] hover:bg-black hover:-translate-y-1 hover:shadow-lg transition-all duration-300 text-white font-bold px-0 py-3 text-sm rounded flex items-center justify-center gap-2 cursor-pointer w-full">
                       서비스 상세보기 <ArrowRight className="w-4 h-4" />
                     </button>
                   </div>
