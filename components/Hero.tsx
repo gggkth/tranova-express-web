@@ -7,7 +7,7 @@ export default function Hero() {
       {/* Background Image - covers only the hero portion */}
       <div
         className="absolute inset-x-0 top-0 bg-[url('/hero-bg-logistics.png')] bg-cover bg-center bg-no-repeat"
-        style={{ height: '50vh', minHeight: '370px' }}
+        style={{ height: '80vh', minHeight: '450px' }}
       >
         <div className="absolute inset-0 bg-black/30"></div>
       </div>
@@ -15,7 +15,7 @@ export default function Hero() {
       {/* Hero Content - same height as background */}
       <div
         className="relative z-10 flex flex-col items-center justify-center px-8 max-w-6xl mx-auto w-full"
-        style={{ height: '50vh', minHeight: '370px' }}
+        style={{ height: '80vh', minHeight: '450px' }}
       >
         <FadeUp className="w-full max-w-2xl flex flex-col" delay={100}>
           {/* Search Box */}
@@ -34,7 +34,7 @@ export default function Hero() {
 
       {/* Cards Section - overlaps hero by half the card height (~80px) */}
       <FadeUp className="relative z-20 max-w-4xl mx-auto w-full px-8 -mt-[80px]" delay={300}>
-        <div className="bg-white rounded-tr-[32px] rounded-bl-sm shadow-2xl flex flex-col md:flex-row divide-y md:divide-y-0 md:divide-x divide-gray-100 relative overflow-hidden">
+        <div className="bg-white rounded-[32px] shadow-2xl flex flex-col md:flex-row divide-y md:divide-y-0 md:divide-x divide-gray-100 relative overflow-hidden">
           {/* Top right Yellow Notch */}
           <div className="absolute top-0 right-0 w-16 h-16 bg-[#ffcc00] -mr-8 -mt-8 transform rotate-45 pointer-events-none"></div>
 

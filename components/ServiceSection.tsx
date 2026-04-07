@@ -36,7 +36,7 @@ const services = [
 
 export default function ServiceSection() {
   return (
-    <section className="w-full pt-24 pb-16 flex flex-col gap-16 font-sans">
+    <section className="w-full pt-24 pb-16 flex flex-col gap-16 font-sans bg-white">
       <FadeUp className="max-w-6xl mx-auto w-full px-8 text-center">
         <p className="text-xs font-bold text-[#d40511] uppercase tracking-widest mb-2">Our Services</p>
         <h2 className="text-4xl font-extrabold text-black tracking-tight">트라노바 익스프레스 주요 서비스</h2>
@@ -46,52 +46,50 @@ export default function ServiceSection() {
         const Icon = svc.icon;
         return (
           <FadeUp key={svc.id}>
-            <div className="relative w-full min-h-[460px]">
-              {/* Image - bleeds to edge */}
-              <div
-                className={`absolute top-0 bottom-0 w-[62%] ${svc.imageLeft ? 'left-0' : 'right-0'}`}
-              >
-                <img
-                  src={svc.image}
-                  alt={svc.category}
-                  className="w-full h-full object-cover object-center"
-                />
-              </div>
+            <div className="max-w-6xl mx-auto px-8">
+              <div className="relative min-h-[460px]">
+                {/* Image - fills right/left side, stays within container */}
+                <div className={`absolute top-0 bottom-0 w-[62%] rounded-2xl overflow-hidden ${svc.imageLeft ? 'left-0' : 'right-0'}`}>
+                  <img
+                    src={svc.image}
+                    alt={svc.category}
+                    className="w-full h-full object-cover object-center"
+                  />
+                </div>
 
-              {/* Card - overlaps image */}
-              <div className="relative z-10 max-w-6xl mx-auto px-8 py-10 h-full flex items-center">
-                <div
-                  className={`w-[52%] bg-white shadow-2xl p-10 flex flex-col justify-between ${svc.imageLeft ? 'ml-auto' : ''}`}
-                >
-                  <div>
-                    <div className="flex items-center gap-2 mb-3">
-                      <Icon className="w-5 h-5 text-[#d40511]" />
-                      <span className="text-xs font-bold text-[#d40511] uppercase tracking-widest">
-                        Service 0{svc.id}
-                      </span>
-                    </div>
-                    <h2 className="text-3xl font-extrabold text-black mb-2 tracking-tight">
-                      {svc.category}
-                    </h2>
-                    <p className="text-base font-semibold text-gray-600 mb-4">{svc.subtitle}</p>
-                    <p className="text-sm text-gray-500 leading-relaxed mb-6">{svc.description}</p>
+                {/* Card - overlaps image, floats above */}
+                <div className={`relative z-10 py-10 flex items-center ${svc.imageLeft ? 'justify-end' : 'justify-start'}`}>
+                  <div className="w-[56%] bg-white shadow-2xl rounded-2xl p-10 flex flex-col justify-between">
+                    <div>
+                      <div className="flex items-center gap-2 mb-3">
+                        <Icon className="w-5 h-5 text-[#d40511]" />
+                        <span className="text-xs font-bold text-[#d40511] uppercase tracking-widest">
+                          Service 0{svc.id}
+                        </span>
+                      </div>
+                      <h2 className="text-3xl font-extrabold text-black mb-2 tracking-tight">
+                        {svc.category}
+                      </h2>
+                      <p className="text-base font-semibold text-gray-600 mb-4">{svc.subtitle}</p>
+                      <p className="text-sm text-gray-500 leading-relaxed mb-6">{svc.description}</p>
 
-                    {/* Features */}
-                    <div className="bg-gray-50 rounded p-4 grid grid-cols-2 gap-3">
-                      {svc.features.map((f) => (
-                        <div key={f} className="flex items-center gap-2 text-sm text-gray-700">
-                          <span className="w-5 h-5 bg-[#ffcc00] rounded flex items-center justify-center flex-shrink-0">
-                            <span className="w-2 h-2 bg-black rounded-sm block"></span>
-                          </span>
-                          {f}
-                        </div>
-                      ))}
+                      {/* Features */}
+                      <div className="bg-gray-50 rounded p-4 grid grid-cols-2 gap-3">
+                        {svc.features.map((f) => (
+                          <div key={f} className="flex items-center gap-2 text-sm text-gray-700">
+                            <span className="w-5 h-5 bg-[#ffcc00] rounded flex items-center justify-center flex-shrink-0">
+                              <span className="w-2 h-2 bg-black rounded-sm block"></span>
+                            </span>
+                            {f}
+                          </div>
+                        ))}
+                      </div>
                     </div>
+
+                    <button className="mt-8 bg-[#d40511] hover:bg-[#ba040f] transition-colors text-white font-bold px-0 py-3 text-sm rounded flex items-center justify-center gap-2 cursor-pointer w-full">
+                      서비스 상세보기 <ArrowRight className="w-4 h-4" />
+                    </button>
                   </div>
-
-                  <button className="mt-8 bg-[#d40511] hover:bg-[#ba040f] transition-colors text-white font-bold px-0 py-3 text-sm rounded flex items-center justify-center gap-2 cursor-pointer w-full">
-                    서비스 상세보기 <ArrowRight className="w-4 h-4" />
-                  </button>
                 </div>
               </div>
             </div>
